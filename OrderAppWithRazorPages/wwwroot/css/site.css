@@ -1,0 +1,45 @@
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+/* Based on http://prepbootstrap.com/bootstrap-template/steps-navigation-progressbar */
+.progress {
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.step {
+    text-align: center;
+}
+
+.step .col-md-2 {
+    background-color: #fff;
+    border: 1px solid #C0C0C0;
+}
+
+.step .complete {
+    color: #C0C0C0;
+    border: 2px solid #C0C0C0;
+    vertical-align: central;
+}
+
+
+.step .active {
+    color: #F58723;
+    border: 2px solid #5CB85C;
+    vertical-align: central;
+}
+
+.step .glyphicon {
+    padding-top: 15px;
+    font-size: 40px;
+}

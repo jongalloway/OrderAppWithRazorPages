@@ -1,0 +1,96 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Customer Details</h3>
+        </div>
+        <div class="panel-body">
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Ship To:</strong> @Model.Order.Name</li>
+                <li class="list-group-item"><strong>Shipping Address:</strong> @Model.Order.Address</li>
+                <li class="list-group-item"><strong>Phone:</strong> @Model.Order.Phone</li>
+                <li class="list-group-item"><strong>Order Date:</strong> @Model.Order.Date</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Shipping Status</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="progress col-md-10 col-md-push-1">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="@Model.ShippingPercent" aria-valuemin="0" aria-valuemax="100" style="width: @Model.ShippingPercent%;"></div>
+                </div>
+            </div>
+            <div class="row step">
+                <div class="col-md-1"></div>
+                <div class="col-md-2 @Model.GetShippingStepClass(0)">
+                    <span class="fa glyphicon glyphicon-shopping-cart"></span>
+                    <p>Ordered</p>
+                </div>
+                <div class="col-md-2 @Model.GetShippingStepClass(1)">
+                    <span class="fa glyphicon glyphicon-check"></span>
+                    <p>Order Filled</p>
+                </div>
+                <div class="col-md-2 @Model.GetShippingStepClass(2)">
+                    <span class="fa glyphicon glyphicon-plane"></span>
+                    <p>Shipped</p>
+                </div>
+                <div class="col-md-2 @Model.GetShippingStepClass(3)">
+                    <span class="fa glyphicon glyphicon-road"></span>
+                    <p>Out for Delivery</p>
+                </div>
+                <div class="col-md-2 @Model.GetShippingStepClass(4)">
+                    <span class="fa glyphicon glyphicon-home"></span>
+                    <p>Delivered</p>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading">Order Details</div>
+        <div class="panel-body">
+            <p>
+                Your order has been placed under the terms of your corporate agreement.
+                Use these items in accordance with all city, state, national,
+                and galactic laws. Caveat emptor.
+            </p>
+        </div>
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th class="text-right">Quantity</th>
+                    <th class="text-right">Unit Price</th>
+                    <th class="text-right">Subtotal</th>
+                </tr>
+            </thead>
+            @foreach (var order in Model.OrderDetails)
+            {
+                <tr>
+                    <td>@order.product.Name</td>
+                    <td class="text-right">@order.quantity</td>
+                    <td class="text-right">@order.product.Price</td>
+                    <td class="text-right">@(order.product.Price * order.quantity)</td>
+                </tr>
+            }
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="text-right"><mark>@Model.Total</mark></td>
+            </tr>
+        </table>
+    </div>
+</div>
