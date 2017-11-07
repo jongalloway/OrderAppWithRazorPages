@@ -8,9 +8,13 @@ namespace OrderApp.Pages
     public class IndexModel : PageModel
     {
         public Order Order;
+
         public List<(Product product, int quantity)> OrderDetails;
+
         public int ShippingPercent { get; private set; }
+
         public decimal Total { get; private set; }
+
         public (string Message, int Step) ShippingStatus { get; private set; }
 
         private IOrdersService _ordersService;
