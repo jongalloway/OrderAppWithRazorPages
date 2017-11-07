@@ -1,4 +1,5 @@
 ﻿@page
+@using OrderApp.Models
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
@@ -32,26 +33,7 @@
             </div>
             <div class="row step">
                 <div class="col-md-1"></div>
-                <div class="col-md-2 @Model.GetShippingStepClass(0)">
-                    <span class="fa glyphicon glyphicon-shopping-cart"></span>
-                    <p>Ordered</p>
-                </div>
-                <div class="col-md-2 @Model.GetShippingStepClass(1)">
-                    <span class="fa glyphicon glyphicon-check"></span>
-                    <p>Order Filled</p>
-                </div>
-                <div class="col-md-2 @Model.GetShippingStepClass(2)">
-                    <span class="fa glyphicon glyphicon-plane"></span>
-                    <p>Shipped</p>
-                </div>
-                <div class="col-md-2 @Model.GetShippingStepClass(3)">
-                    <span class="fa glyphicon glyphicon-road"></span>
-                    <p>Out for Delivery</p>
-                </div>
-                <div class="col-md-2 @Model.GetShippingStepClass(4)">
-                    <span class="fa glyphicon glyphicon-home"></span>
-                    <p>Delivered</p>
-                </div>
+                <order-status status="@(OrderStatus)Model.ShippingStatus.Step"></order-status>
                 <div class="col-md-1"></div>
             </div>
         </div>

@@ -28,18 +28,5 @@ namespace OrderApp.Pages
             ShippingPercent = (ShippingStatus.Step * 20) + 20; 
             Total = _ordersService.GetOrderTotal(Order.OrderId);
         }
-
-        public string GetShippingStepClass(int Step)
-        {
-            if (ShippingStatus.Step > Step)
-            {
-                return "complete";
-            }
-            else if (ShippingStatus.Step == Step)
-            {
-                return "active";
-            }
-            return string.Empty;
-        }
     }
 }
