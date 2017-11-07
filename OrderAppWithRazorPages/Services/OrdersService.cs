@@ -1,6 +1,6 @@
-﻿using OrderApp.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using OrderApp.Models;
 
 namespace OrderApp.Services
 {
@@ -33,6 +33,7 @@ namespace OrderApp.Services
             var od = GetOrderDetails(OrderId);
             decimal total = 0.00M;
             od.ForEach(o => total += o.quantity * o.product.Price);
+
             return total;
         }
 

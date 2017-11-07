@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using OrderApp.Models;
 using OrderApp.Services;
-using System.Collections.Generic;
 
 namespace OrderApp.Pages
 {
